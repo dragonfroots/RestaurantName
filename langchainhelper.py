@@ -1,9 +1,9 @@
-import dotenv
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.chains import SequentialChain
 import os
+from langchain.chat_models import ChatOpenAI
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -11,8 +11,9 @@ load_dotenv()
 
 os.environ['OPENAI_API_KEY'] = os.getenv('openapi_key')
 
+llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
 
-llm = OpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
+
 
 def generate_restaurant_name_and_items(cuisine):
 
