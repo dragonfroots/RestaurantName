@@ -5,6 +5,7 @@ st.title("Restaurant Name Generator")
 
 cuisine = st.sidebar.selectbox("Select a cuisine", ("Italian", "French", "Mexican", "Indian"))
 
+
 if cuisine:
     response = langchainhelper.generate_restaurant_name_and_items(cuisine)
     st.header(response['restaurant_name'].strip())
