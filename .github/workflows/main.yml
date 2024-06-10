@@ -25,6 +25,6 @@ jobs:
 
     - name: Deploy app
       run: |
-        python deploy_app.py
+        python main.py
       env:
         OPENAI_API_KEY: ${{ secrets.openapi_key }}
