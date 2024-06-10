@@ -1,12 +1,17 @@
-import os
-from my_keys import openapi_key
+import dotenv
 from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 from langchain.chains import SequentialChain
+import os
+
+from dotenv import load_dotenv
+load_dotenv()
 
 
-os.environ['OPENAI_API_KEY'] = openapi_key
+os.environ['OPENAI_API_KEY'] = os.getenv('openapi_key')
+
+
 llm = OpenAI(model_name="gpt-3.5-turbo", temperature=0.7)
 
 def generate_restaurant_name_and_items(cuisine):
